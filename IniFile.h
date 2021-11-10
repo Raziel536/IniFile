@@ -20,19 +20,26 @@ public:
 		std::ifstream file(path);
 		std::vector<std::string> strings;
 		// открыть файл (path)
-		if (!file.is_open()) {
-			
-			throw std::invalid_argument("Fail");
+		try {
+			if (!file.is_open()) {
+				throw std::invalid_argument("Fail");
+			}
 		}
-		else {
+		catch (std::exception e) {
+			std::ofstream fout(path);
+			fout.close();
+			std::ifstream file(path);
+
+
 			// while(getline(файла))
 			while (!file.eof()) {
 				if (std::getline(file, str) && !(str.length() == 1 && isspace(str[0]))) {
 					strings.push_back(str);
 				}
 			}
+
+			file.close();
 		}
-		file.close();
 
 		std::string section;
 		std::string key;
