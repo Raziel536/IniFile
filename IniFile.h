@@ -29,16 +29,16 @@ public:
 			std::ofstream fout(path);
 			fout.close();
 			std::ifstream file(path);
-
+		}
 
 			// while(getline(файла))
-			while (!file.eof()) {
-				if (std::getline(file, str) && !(str.length() == 1 && isspace(str[0]))) {
-					strings.push_back(str);
-				}
+		while (!file.eof()) {
+			if (std::getline(file, str) && !(str.length() == 1 && isspace(str[0]))) {
+				strings.push_back(str);
 			}
+		}
 
-			file.close();
+		file.close();
 		}
 
 		std::string section;
@@ -61,7 +61,7 @@ public:
 				last = strings[i].size() - 1;
 				value = strings[i].substr(first, last);
 				if(!value.empty())
-					_data.at(section).insert(std::pair<std::string, std::string>(key, value));
+				   _data.at(section).insert(std::pair<std::string, std::string>(key, value));
 			}
 		}
 
