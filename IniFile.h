@@ -61,7 +61,7 @@ public:
 				last = strings[i].size() - 1;
 				value = strings[i].substr(first, last);
 				if(!value.empty())
-				_data.at(section).insert(std::pair<std::string, std::string>(key, value));
+					_data.at(section).insert(std::pair<std::string, std::string>(key, value));
 			}
 		}
 
