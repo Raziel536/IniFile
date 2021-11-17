@@ -39,7 +39,7 @@ public:
 		}
 
 		file.close();
-		}
+		
 
 		std::string section;
 		std::string key;
